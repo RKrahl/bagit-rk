@@ -1,7 +1,7 @@
-bagit-python
-============
+bagit-rk
+========
 
-[![Build Status](https://travis-ci.org/LibraryOfCongress/bagit-python.svg)](http://travis-ci.org/LibraryOfCongress/bagit-python)
+bagit-rk is a fork of [bagit-python](https://github.com/LibraryOfCongress/bagit-python).
 
 bagit is a Python library and command line utility for working with  [BagIt](http://purl.org/net/bagit) style packages.
 
@@ -167,8 +167,8 @@ for path, fixity in bag.entries.items():
 Development
 -----------
 
-    % git clone git://github.com/LibraryOfCongress/bagit-python.git
-    % cd bagit-python
+    % git clone git://github.com/LibraryOfCongress/bagit-rk.git
+    % cd bagit-rk
     % python test.py
 
 If you'd like to see how increasing parallelization of bag creation on 
