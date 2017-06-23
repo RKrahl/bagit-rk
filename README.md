@@ -167,7 +167,7 @@ for path, fixity in bag.entries.items():
 Development
 -----------
 
-    % git clone git://github.com/LibraryOfCongress/bagit-rk.git
+    % git clone git://github.com/RKrahl/bagit-rk.git
     % cd bagit-rk
     % python test.py
 
