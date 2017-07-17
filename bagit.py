@@ -159,7 +159,7 @@ def make_bag(bag_dir, bag_info=None, processes=1, checksum=None,
             if 'Bagging-Date' not in bag_info:
                 bag_info['Bagging-Date'] = date.strftime(date.today(), "%Y-%m-%d")
             if 'Bag-Software-Agent' not in bag_info:
-                bag_info['Bag-Software-Agent'] = 'bagit.py v' + VERSION + ' <http://github.com/libraryofcongress/bagit-python>'
+                bag_info['Bag-Software-Agent'] = 'bagit.py v' + VERSION + ' <https://github.com/RKrahl/bagit-rk>'
             bag_info['Payload-Oxum'] = Oxum
             _make_tag_file('bag-info.txt', bag_info)
 
