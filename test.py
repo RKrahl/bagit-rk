@@ -305,7 +305,7 @@ class TestSingleProcessValidation(unittest.TestCase):
         info = {'Bagging-Date': '1970-01-01', 'Contact-Email': 'ehs@pobox.com'}
         bag = bagit.make_bag(self.tmpdir, checksum=['sha1'], bag_info=info)
         self.assertTrue(os.path.isfile(j(self.tmpdir, 'tagmanifest-sha1.txt')))
-        self.assertEqual(bag.entries['bag-info.txt']['sha1'], 'ec70407d895d4e550bc0a7ea40a82ad653d136e5')
+        self.assertEqual(bag.entries['bag-info.txt']['sha1'], 'd6401cea139ab408616d875fd839dace74fa9265')
 
     def test_validate_unreadable_file(self):
         bag = bagit.make_bag(self.tmpdir, checksum=["md5"])
@@ -371,7 +371,7 @@ class TestBag(unittest.TestCase):
             tagmanifest_txt = tm.read()
         self.assertTrue('9e5ad981e0d29adc278f6a294b8c2aca bagit.txt' in tagmanifest_txt)
         self.assertTrue('a0ce6631a2a6d1a88e6d38453ccc72a5 manifest-md5.txt' in tagmanifest_txt)
-        self.assertTrue('bfe59ad8af1a227d27c191b4178c399f bag-info.txt' in tagmanifest_txt)
+        self.assertTrue('dbd3832465d33cc7786e631329e97ea8 bag-info.txt' in tagmanifest_txt)
 
     def test_make_bag_sha1_manifest(self):
         bagit.make_bag(self.tmpdir, checksum=['sha1'])
@@ -574,6 +574,7 @@ Tag-File-Character-Encoding: UTF-8
         self.assertEqual(bag.info['test'], '♡')
 
 
+@mock.patch('bagit.VERSION', new='1.5.4')  # This avoids needing to change expected hashes on each release
 class TestTagFiles(unittest.TestCase):
     """Test Issue #75: The selection of tag files is broken.
     """
@@ -602,10 +603,11 @@ class TestTagFiles(unittest.TestCase):
             tagmanifest_txt = tm.readlines()
         self.assertTrue('9e5ad981e0d29adc278f6a294b8c2aca bagit.txt\n' in tagmanifest_txt)
         self.assertTrue('a0ce6631a2a6d1a88e6d38453ccc72a5 manifest-md5.txt\n' in tagmanifest_txt)
-        self.assertTrue('bfe59ad8af1a227d27c191b4178c399f bag-info.txt\n' in tagmanifest_txt)
+        self.assertTrue('dbd3832465d33cc7786e631329e97ea8 bag-info.txt\n' in tagmanifest_txt)
         self.assertEqual(len(tagmanifest_txt), 3)
 
 
+@mock.patch('bagit.VERSION', new='1.5.4')  # This avoids needing to change expected hashes on each release
 class TestBagNoMovePayload(unittest.TestCase):
     """Tests for creating a bag with move_payload=False.
     """
@@ -658,7 +660,7 @@ class TestBagNoMovePayload(unittest.TestCase):
             tagmanifest_txt = tm.read()
         self.assertTrue('9e5ad981e0d29adc278f6a294b8c2aca bagit.txt' in tagmanifest_txt)
         self.assertTrue('a0ce6631a2a6d1a88e6d38453ccc72a5 manifest-md5.txt' in tagmanifest_txt)
-        self.assertTrue('bfe59ad8af1a227d27c191b4178c399f bag-info.txt' in tagmanifest_txt)
+        self.assertTrue('dbd3832465d33cc7786e631329e97ea8 bag-info.txt' in tagmanifest_txt)
 
     def test_make_bag_err_no_payload(self):
         os.rename(j(self.tmpdir, 'data'), j(self.tmpdir, 'foo'))
